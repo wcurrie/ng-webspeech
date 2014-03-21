@@ -1,0 +1,12 @@
+<div class="jumbotron">
+    <select ng-model="term" ng-options="i.term for i in terms" ng-change="speak()"></select>
+    <span class="glyphicon glyphicon-bullhorn" ng-click="speak()" ng-show="speachSupported"></span>
+    <div class="term-text">{{term.definition}}</div>
+    <div ng-show="speachSupported">
+        <input type="range" ng-model="rate" min="0.1" max="3" step="0.1"/> {{rate}}
+        <select ng-model="voice" ng-options="v.name for v in voices" ng-show="voices"></select>
+    </div>
+    <div ng-if="!speachSupported" class="alert alert-warning">
+        No <a href="http://caniuse.com/web-speech" class="alert-link">text to speech</a> sorry.
+    </div>
+</div>
