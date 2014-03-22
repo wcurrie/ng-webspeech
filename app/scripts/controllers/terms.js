@@ -25,7 +25,7 @@ angular.module('talkerApp')
         } else {
             $scope.speak = function() {};
         }
-        $scope.terms = $resource("/data.json").query(function(terms) {
+        $scope.terms = $resource("data.json").query(function(terms) {
             if (terms) {
                 var i = Math.floor(Math.random() * terms.length);
                 $scope.term = terms[i];
